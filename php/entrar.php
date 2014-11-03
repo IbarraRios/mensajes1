@@ -34,34 +34,30 @@
   <div class="smallWrap first">
    <h2>Mensajes Recientes</h2>
    <p><img src="images/blankPic.png" alt="" /><?php 
-   echo $query="select * from usuarios where nombre_corto='".$_POST['name'].
-   "' and contrasena='".md5($_POST['contra'])."'";
+   $query="select * from usuarios where nombre_corto='".$_POST['name']."' and contrasenna='".md5($_POST['contra'])."'";
    if (!$resultado=mysqli_query($con,$query)) {
    echo "error".mysqli_error($con);
    }else{
+   
     $muestra=mysqli_fetch_array($resultado);
-    $_SESSION['login']=true;
+    //if(!empty(!$muestra['nombre_corto'])&&!empty(!$muestra['contrasenna'])){
+	//if(validar()==true){
+	$_SESSION['login']=true;
     $_SESSION['nombre_largo']=$muestra['nombre_largo'];
     $_SESSION['nombre_corto']=$muestra['nombre_corto'];
     $_SESSION['tipo_usuario']=$muestra['id_tipo_usuario'];
-    $_SESSION['id_usuario']=$muestra['id_usuario'];
-    print_r($_SESSION);
+    $_SESSION['ID_usuario']=$muestra['id_usuario'];
+    //print_r($_SESSION);
     echo "bienvenido ".$_SESSION['nombre_largo'];
-
-
-
-
-
-
-
-
-
-
-
+	echo "<a href='ver_tipo_usuario.php'> Cuentas </a><br>";
+	//}else
+	//{
+		//  header("location: sinacceso.php");
+	//}
    }
 
    ?>
-   <a href="php/vermensajes.php" class="view">Ver más</a>
+   <a href="vermensajes.php" class="view">Ver más</a>
   </div>
   <div class="smallWrap">
    <h2>Notas externas</h2>
@@ -74,7 +70,7 @@
    <p><img src="images/blankPic.png" alt="" /><form class="form1" method="post" action="entrar.php">
    <p><i>Los Campos son obligados</i></p>
    Usuario<input name="name" type="text" /><br>
-   Contraseña<input name="id" type="text" />
+   Contraseña<input name="contra" type="text" />
    <input name="" type="submit" value="Entrar" />
   </form>
   </div>

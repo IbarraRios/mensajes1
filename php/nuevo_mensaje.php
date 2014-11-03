@@ -27,17 +27,36 @@
    <li><a href="http://www.titter.com/mensajes.itq">Twitter</a></li>
   </ul>
   <p class="t1">"La Tierra <span>será </span> como sean los hombres."</p>
-  
+  <h1>~ Comunicate con nostros ~<br /> Avisos.</h1>
+  <p class="cnt">Fusce ultrices tincidunt mauris, vitae ornare felis varius vehicula. Nullam tincidunt dignissim erat in tempus. Vestibulum hendrerit, magna at mattis bibendum, dolor nibh congue risus, eget laoreet sapien sapien non nulla. Morbi molestie blandit orci suscipit pulvinar. Curabitur quis erat at lectus feugiat placerat.</p>
+  <a href="#" class="dl"></a>
+  <hr />
   <div class="smallWrap first">
-   <h2>Mensajes Recientes</h2>
-   <p><img src="images/blankPic.png" alt="" />
+   <h2>Nuevo Mensaje</h2>
    <?php
-   
-	mensajes_respuesta($_GET['id'],$con);
-   ?>
-   
+   if(!isset($_POST['btn_nuevo'])) {
+		//$id=$_GET['id_Agregar'];<input type='hidden' name='id_usuario' value='".$id."'>
+		echo "<form name='nuevo_mensaje' action='nuevo_mensaje.php' method='post'>
+		
+		<textarea name='form_nuevo_mensaje' col='50' rows='5'>Mensaje
+		</textarea>
+		<input type='submit' name='btn_nuevo' value='Nuevo'>
+</form>"; ;
+	}else {
+		//$id=$_POST['id_padre'];
+		
+		
+		
+		$query="INSERT INTO mensajes (id_mensaje, id_padre,asunto,ID_usuario,descripcion,
+      id_categoria,fecha_publicacion) 
+		VALUES (NULL,0, 'nuevo', '".$_SESSION['ID_usuario']."', '".$_POST['form_nuevo_mensaje']."',
+     '2', '2014-10-22');";
+		if(!$resultado=mysqli_query($con, $query)) {echo "Error".mysqli_error($con);} 
+		else{		
+				header('Location: /mensajes/php/vermensajes.php');	
+			echo "<a href='vermensajes.php'>Regresar</a>";}	}
+	?>
   </div>
-  
   
   <hr />
   <h3 class="mt">Maecenas dignissim</h3>

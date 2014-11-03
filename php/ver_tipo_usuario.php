@@ -34,10 +34,10 @@
   <div class="smallWrap first">
    <h2>Mensajes Recientes</h2>
    <p><img src="images/blankPic.png" alt="" /><?php 
-   echo "Bienvenido".$_SESSION['nombre_largo'];
+   echo "Bienvenido ".$_SESSION['nombre_largo'];
    ver_tipo_usuario($con);
    ?>
-   <a href="php/vermensajes.php" class="view">Ver más</a>
+   <a href="vermensajes.php" class="view">Ver más</a>
   </div>
   <div class="smallWrap">
    <h2>Notas externas</h2>

@@ -36,7 +36,7 @@
    <p><img src="images/blankPic.png" alt="" /><?php 
    if (validar()){
      
-   $query="delete from tipo_usuario where id_tipo_usuario=".$_GET['id_eliminar'];
+   $query="delete from tipo_usuarios where id_tipo_usuario=".$_GET['id_eliminar'];
    if (!$resultado=mysqli_query($con,$query)) {echo "Error". mysqli_error($con);}
    else{
     header("location: ver_tipo_usuario.php");

@@ -55,7 +55,8 @@
 				
 				header('Location: /mensajes/php/vermensajes.php');
 				
-			echo "<a href='vermensajes.php'>Regresar</a>";}	}?>
+			echo "<a href='vermensajes.php'>Regresar</a>";}	}
+	?>
   </div>
   
   <hr />

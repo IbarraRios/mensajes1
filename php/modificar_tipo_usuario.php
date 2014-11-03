@@ -1,7 +1,7 @@
 <?php
     require "funciones.php";
 	$con=conectar();
-	session_start();
+	
 	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -27,18 +27,31 @@
    <li><a href="http://www.titter.com/mensajes.itq">Twitter</a></li>
   </ul>
   <p class="t1">"La Tierra <span>será </span> como sean los hombres."</p>
-  
+  <h1>~ Comunicate con nostros ~<br /> Avisos.</h1>
+  <p class="cnt">Fusce ultrices tincidunt mauris, vitae ornare felis varius vehicula. Nullam tincidunt dignissim erat in tempus. Vestibulum hendrerit, magna at mattis bibendum, dolor nibh congue risus, eget laoreet sapien sapien non nulla. Morbi molestie blandit orci suscipit pulvinar. Curabitur quis erat at lectus feugiat placerat.</p>
+  <a href="#" class="dl"></a>
+  <hr />
   <div class="smallWrap first">
    <h2>Mensajes Recientes</h2>
-   <p><img src="images/blankPic.png" alt="" />
-   <?php
-   
-	mensajes_respuesta($_GET['id'],$con);
+   <p><img src="images/blankPic.png" alt="" /><?php mostrar_mensajes_inicio($con);
    ?>
-   
+   <a href="vermensajes.php" class="view">Ver más</a>
   </div>
-  
-  
+  <div class="smallWrap">
+   <h2>Notas externas</h2>
+   <p><img src="images/blankPic.png" alt="" />Pellentesque nibh tortor, tempor ut congue at, sodales eu nibh. Mauris consectetur luctus ligula, in molestie felis feugiat id. Phasellus iaculis....</p>
+   <p>Pellentesque nibh tortor, tempor ut congue at, sodales eu nibh. Mauris consectetur luctus ligula, in molestie felis feugiat id. Phasellus iaculis....</p>
+   <a href="#" class="view">Más</a>
+  </div>
+  <div class="smallWrap">
+   <h2>Entrar</h2>
+   <p><img src="images/blankPic.png" alt="" /><form class="form1" method="post" action="entrar.php">
+   <p><i>Los Campos son obligados</i></p>
+   Usuario<input name="name" type="text" /><br>
+   Contraseña<input name="id" type="text" />
+   <input name="" type="submit" value="Entrar" />
+  </form>
+  </div>
   <hr />
   <h3 class="mt">Maecenas dignissim</h3>
   <p>Suspendisse sollicitudin vestibulum luctus. Nulla dolor nunc, vestibulum a consequat at, vulputate ut magna. Aenean convallis odio odio. Phasellus feugiat eros id massa congue quis congue libero fermentum. In tellus lorem, varius nec vehicula a, pharetra in eros. Ut in nibh et risus lobortis tempor ut nec est. Phasellus ut interdum nisi. </p>
